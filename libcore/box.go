@@ -83,7 +83,7 @@ func NewSingBoxInstance(config string) (b *BoxInstance, err error) {
 
 	// create box context
 	ctx, cancel := context.WithCancel(context.Background())
-	ctx = box.Context(ctx, nekoboxAndroidInboundRegistry(), nekoboxAndroidOutboundRegistry(), nekoboxAndroidEndpointRegistry())
+	ctx = box.ContextWithRegistries(ctx, nekoboxAndroidInboundRegistry(), nekoboxAndroidOutboundRegistry(), nekoboxAndroidEndpointRegistry())
 	ctx = service.ContextWithDefaultRegistry(ctx)
 	service.MustRegister[platform.Interface](ctx, boxPlatformInterfaceInstance)
 
