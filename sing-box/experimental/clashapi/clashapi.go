@@ -1,0 +1,2 @@
+// Package stub
+package clashapi
